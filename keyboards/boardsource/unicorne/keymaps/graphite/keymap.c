@@ -16,14 +16,12 @@ const uint16_t SYM_TAB = LT(_SYMBOL, KC_TAB);
 const uint16_t NAV_SPC = LT(_NAVIGATION, KC_SPC);
 
 const uint16_t CTL_S = LCTL_T(KC_S);
-const uint16_t CTL_CRT = LCTL_T(KC_CIRC);
 const uint16_t CTL_RT = LCTL_T(KC_RGHT);
 const uint16_t CTL_H = RCTL_T(KC_H);
-const uint16_t CTL_DLR = RCTL_T(KC_DLR);
 const uint16_t CTL_F5 = RCTL_T(KC_F5);
 
 const uint16_t ALT_T = LALT_T(KC_T);
-const uint16_t ALT_SIX = LALT_T(KC_6);
+const uint16_t ALT_6 = LALT_T(KC_6);
 const uint16_t ALT_UP = LALT_T(KC_UP);
 const uint16_t ALT_A = RALT_T(KC_A);
 const uint16_t ALT_PLS = RALT_T(KC_PLUS);
@@ -60,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_GRV,  KC_B,   KC_L,    KC_D,    KC_W,    KC_Z,                   KC_QUOT,    KC_F,    KC_O,    KC_U,    KC_J, KC_BSLS,
   KC_SCLN,  KC_N,   KC_R,   ALT_T,   CTL_S,    KC_G,                      KC_Y,   CTL_H,   ALT_A,    KC_E,    KC_I, KC_COMM,
   KC_LGUI,  KC_Q,   KC_X,    KC_M,    KC_C,    KC_V,                      KC_K,    KC_P,  KC_DOT, KC_MINS, KC_SLSH, KC_RGUI,
-                                     KC_ESC, SYM_ENT, SYM_SPC, KC_RSFT, SYM_BS, KC_DEL
+                                     KC_ESC, SYM_ENT, NAV_SPC, KC_RSFT, SYM_BS, KC_DEL
 ),
 /* Gaming
  * ,-----------------------------------------.                    ,-----------------------------------------.
@@ -94,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_SYMBOL] = LAYOUT_split_3x6_3(
   XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0, XXXXXXX,                   XXXXXXX, KC_RPRN, KC_RCBR, KC_LPRN, KC_LCBR, XXXXXXX,
-   KC_ESC,    KC_4,    KC_5,   ALT_6, CTL_CRC,   KC_AT,                     KC_EQ, CTL_DLR, ALT_PLS, KC_AMPR, KC_PERC, XXXXXXX,
+   KC_ESC,    KC_4,    KC_5,   ALT_6, KC_CIRC,   KC_AT,                    KC_EQL,  KC_DLR, KC_PLUS, KC_AMPR, KC_PERC, XXXXXXX,
   _______,    KC_1,    KC_2,    KC_3, KC_HASH, XXXXXXX,                   XXXXXXX, KC_ASTR, KC_RBRC, KC_EXLM, KC_LBRC, _______,
                                       _______, SYM_TAB, _______, _______, _______, _______
 ),
