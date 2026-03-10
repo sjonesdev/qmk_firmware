@@ -15,29 +15,40 @@ const uint16_t SYM_TAB = LT(_SYMBOL, KC_TAB);
 
 const uint16_t NAV_SPC = LT(_NAVIGATION, KC_SPC);
 
-const uint16_t CTL_S = LCTL_T(KC_S);
-const uint16_t CTL_RT = LCTL_T(KC_RGHT);
-const uint16_t CTL_H = RCTL_T(KC_H);
-const uint16_t CTL_F5 = RCTL_T(KC_F5);
+// put ALT on pointer finger so we can use the common hotkeys easily
+// e.g. CTRL/GUI + S,C,V,F,Z,etc.
+const uint16_t ALT_S = LALT_T(KC_S);
+const uint16_t ALT_CRC = LALT_T(KC_CIRC);
+const uint16_t ALT_RT = LALT_T(KC_RGHT);
+const uint16_t ALT_H = RALT_T(KC_H);
+const uint16_t ALT_DLR = RALT_T(KC_DLR);
+const uint16_t ALT_F5 = RALT_T(KC_F5);
 
-const uint16_t ALT_T = LALT_T(KC_T);
-const uint16_t ALT_6 = LALT_T(KC_6);
-const uint16_t ALT_UP = LALT_T(KC_UP);
-const uint16_t ALT_A = RALT_T(KC_A);
-const uint16_t ALT_PLS = RALT_T(KC_PLUS);
-const uint16_t ALT_F6 = RALT_T(KC_F6);
+const uint16_t GUI_T = LGUI_T(KC_T);
+const uint16_t GUI_6 = LGUI_T(KC_6);
+const uint16_t GUI_UP = LGUI_T(KC_UP);
+const uint16_t GUI_A = RGUI_T(KC_A);
+const uint16_t GUI_PLS = RGUI_T(KC_PLUS);
+const uint16_t GUI_F6 = RGUI_T(KC_F6);
+
+const uint16_t CTL_R = LCTL_T(KC_R);
+const uint16_t CTL_5 = LCTL_T(KC_5);
+const uint16_t CTL_DWN = LCTL_T(KC_DOWN);
+const uint16_t CTL_E = RCTL_T(KC_E);
+const uint16_t CTL_AMP = RCTL_T(KC_AMPR);
+const uint16_t CTL_F7 = RCTL_T(KC_F7);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* Graphite
  * ,-----------------------------------------.                    ,-----------------------------------------.
- * |   `  |   B  |   L  |   D  |   W  |   Z  |                    |   '  |   F  |   O  |   U  |   J  |  ;   |
+ * |   `  |   B  |   L  |   D  |   W  |   Z  |                    |   '  |   F  |   O  |   U  |   J  |  \   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * |   ;  |   N  |   R  |   T  |   S  |   G  |                    |   Y  |   H  |   A  |   E  |   I  |  ,   |
+ * |   ;  |   N  |R(CTL)|T(GUI)|S(ALT)|   G  |                    |   Y  |H(ALT)|A(GUI)|E(CTL)|   I  |  ,   |
  * |------+------+------+------+------+------|                    |------+------+------+------+------+------|
- * | LGUI |   Q  |   X  |   M  |   C  |   V  |-------.     ,------|   K  |   P  |   .  |   -  |   /  | RGUI |
+ * |  Esc |   Q  |   X  |   M  |   C  |   V  |-------.     ,------|   K  |   P  |   .  |   -  |   /  | Esc  |
  * `-----------------------------------------/       /     \      \-----------------------------------------'
- *                          | Esc  |Enter | /Space  /       \Shift \  |BackSP|  Del |
+ *                          | TAB  |Enter | /Space  /       \Shift \  |BackSP|  Del |
  *                          |      | SYM  |/  NAV  /         \      \ | SYM  |      |
  *                          `---------------------'           '------''-------------'
  *
@@ -56,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_GRAPHITE] = LAYOUT_split_3x6_3(
    KC_GRV,  KC_B,   KC_L,    KC_D,    KC_W,    KC_Z,                   KC_QUOT,    KC_F,    KC_O,    KC_U,    KC_J, KC_BSLS,
-  KC_SCLN,  KC_N,   KC_R,   ALT_T,   CTL_S,    KC_G,                      KC_Y,   CTL_H,   ALT_A,    KC_E,    KC_I, KC_COMM,
+  KC_SCLN,  KC_N,  CTL_R,   GUI_T,   ALT_S,    KC_G,                      KC_Y,    ALT_H,   GUI_A,  CTL_E,    KC_I, KC_COMM,
   KC_LGUI,  KC_Q,   KC_X,    KC_M,    KC_C,    KC_V,                      KC_K,    KC_P,  KC_DOT, KC_MINS, KC_SLSH, KC_RGUI,
                                      KC_ESC, SYM_ENT, NAV_SPC, KC_RSFT, SYM_BS, KC_DEL
 ),
@@ -92,7 +103,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_SYMBOL] = LAYOUT_split_3x6_3(
   XXXXXXX,    KC_7,    KC_8,    KC_9,    KC_0, XXXXXXX,                   XXXXXXX, KC_RPRN, KC_RCBR, KC_LPRN, KC_LCBR, XXXXXXX,
-   KC_ESC,    KC_4,    KC_5,   ALT_6, KC_CIRC,   KC_AT,                    KC_EQL,  KC_DLR, KC_PLUS, KC_AMPR, KC_PERC, XXXXXXX,
+   KC_ESC,    KC_4,   CTL_5,   GUI_6, ALT_CRC,   KC_AT,                    KC_EQL, ALT_DLR, GUI_PLS, CTL_AMP, KC_PERC, XXXXXXX,
   _______,    KC_1,    KC_2,    KC_3, KC_HASH, XXXXXXX,                   XXXXXXX, KC_ASTR, KC_RBRC, KC_EXLM, KC_LBRC, _______,
                                       _______, SYM_TAB, _______, _______, _______, _______
 ),
@@ -111,7 +122,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_NAVIGATION] = LAYOUT_split_3x6_3(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX,   KC_F1,   KC_F2,   KC_F3,   KC_F4, XXXXXXX,
-  XXXXXXX, KC_LEFT, KC_DOWN,  ALT_UP,  CTL_RT, XXXXXXX,                   XXXXXXX,  CTL_F5,  ALT_F6,   KC_F7,   KC_F8, XXXXXXX,
+   KC_ESC, KC_LEFT, CTL_DWN,  GUI_UP,  ALT_RT, XXXXXXX,                   XXXXXXX,  ALT_F5,  GUI_F6,  CTL_F7,   KC_F8, XXXXXXX,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX,   KC_F9,  KC_F10,  KC_F11,  KC_F12, _______,
                                       _______, SYM_ENT, _______, _______, _______, _______
 ),
